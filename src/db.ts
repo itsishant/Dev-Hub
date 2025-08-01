@@ -1,4 +1,4 @@
-import { connection } from "./utils/connectDb";
+import { connection } from "./utils/connectDB";
 import { Database } from "./utils/dbInfo";
 import { model } from "mongoose";
 import { userSchema } from "./utils/userSchema";
