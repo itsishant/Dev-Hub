@@ -23,7 +23,7 @@ export class AuthController{
         if(!passwordMatch) return res.status(401).json({ message: "Invaild credentials" })
 
         // token sign    
-        const token = await generateToken(username);
+        const token = await generateToken(existingUser._id.toString());
         return res.status(200).json({ message: "Signin successfully", token: token, user: {username: existingUser.username, bio: existingUser.Bio} })
 
         } catch (error) {
@@ -32,3 +32,4 @@ export class AuthController{
         }
     }
 }
+ 

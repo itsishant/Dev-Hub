@@ -1,1 +1,1 @@
-export const JWT_SECRET = "ishnat@!ud89ye83yejhb"
+export const JWT_SECRET = "ishnat@#$%&*%*)(*&^%$#@29u2uhhdfe!!!";

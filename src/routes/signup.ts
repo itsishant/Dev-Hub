@@ -11,11 +11,10 @@ import { generateToken } from "../utils/createToken";
 export class AuthController {
  static async Signup (req: Request, res: Response) {
     const {username, password, Bio, Avatar} = req.body;
-    const result = SignUpZod.safeParse(req.body);
 
-    if(!result.success){
-        return res.status(411).json({message: "Body field required"})
-    }
+    // check zod
+    const result = SignUpZod.safeParse(req.body);
+    if(!result.success) return res.status(411).json({message: "Body field required"})
 
     const existingUser = await findUser(username);
     if(existingUser){
@@ -29,14 +28,14 @@ export class AuthController {
  
     if(users){
         
-        const token = generateToken(username);
+        const token = generateToken(users._id.toString());
 
-        res.status(200).json({
+       return res.status(200).json({
             message: "User created successfully",
             token: token
         })
-
     }
+
     } catch(error) {
         console.log("Error "+error);
     }

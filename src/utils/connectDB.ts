@@ -10,5 +10,3 @@ export const connection = async function(){
         console.error("Error "+error);
     }
 }
-
-connection();
