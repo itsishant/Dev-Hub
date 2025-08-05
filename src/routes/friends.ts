@@ -24,7 +24,6 @@ export class AuthController {
     static async acceptFriendRequest(req: Request, res: Response) {
         const currentUser = (req as any).userId;
         const { fromUser } = req.body;
-
         try{
         
         const accept = await friendRequest(fromUser, currentUser);
